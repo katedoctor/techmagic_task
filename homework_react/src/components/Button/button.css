@@ -1,0 +1,19 @@
+button {
+  float: right;
+  background-color: black;
+  color: #f1f1f1;
+  border: 1px solid #f1f1f1;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+button:hover {
+  background: rgb(253, 163, 28);
+  color: black;
+}
+button:focus{
+  background: rgb(253, 177, 64);
+  outline: 0;
+  outline-color: none;
+}
