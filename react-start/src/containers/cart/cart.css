@@ -1,0 +1,18 @@
+.App-cart {
+    display: flex;
+    width: 100%;
+    padding: 0 10px;
+}
+.cart_list_item {
+    display: block;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    margin: 10px;
+}
+
+.cart_list_item p {
+    font-size: 0.9em;
+    line-height: 21px;
+    margin: 0;
+}

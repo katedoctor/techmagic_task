@@ -1,0 +1,5 @@
+export const ADD_TO_CARD = 'ADD_TO_CARD';
+export const INCREASE_AMOUNT = 'INCREASE_AMOUNT';
+export const REDUCE_AMOUNT = 'REDUCE_AMOUNT';
+export const GET_CART_ITEMS = 'GET_CART_ITEMS';
+
