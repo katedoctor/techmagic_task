@@ -1,0 +1,34 @@
+ <button (click)="emitGoHome($event)">Home</button>
+  <br />
+    <div class="user-info">
+      <div>
+        <img class="user-img" [src]="SelectedUser.avatar_url">
+        <h2>{{SelectedUser.login}}</h2>
+      </div>
+      <div>
+        <h3>repositories:{{repos}}</h3>
+        <h3>followers: {{numFollowers}}</h3>
+      </div>
+    </div>
+  <hr />
+  <h2>
+    <span *ngIf="loadingFollowers">Followers loading...</span>
+    <span *ngIf="!loadingFollowers">Followers</span>
+  </h2>
+    <div class="followers-box">
+      <div *ngFor="let follower of followers" class="followers">
+        <img [src]="follower.avatar_url">
+        <h4>{{follower.login}}</h4>
+        <button (click)="emitMoreDetails(follower)" role="button">More info</button>
+      </div>
+    </div>
+  <hr />
+  <h2>Subcriptions:</h2>
+  <ul *ngFor="let sub of subs">
+    <li>{{sub.name}}</li>
+  </ul>
+  <h2>Organizations:</h2>
+  <ul *ngFor="let org of orgs">
+    <li>{{org.login}}</li>
+  </ul>
+

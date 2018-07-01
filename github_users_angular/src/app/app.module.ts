@@ -4,12 +4,14 @@ import { UserService } from './services/user.service';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { UserInfoComponent } from './user-info/user-info.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -18,8 +18,8 @@ export class UserService {
   getUserOrgs(user: string): Observable<any> {
     return this._http.get("https://api.github.com/users/" + user + '/orgs')
   }
-  onSearch(login: string): Observable<any> {
-    return this._http.get("https://api.github.com/users/" + login)
+  onSearch(user: string): Observable<any> {
+    return this._http.get("https://api.github.com/users/" + user)
   }
   getSubscription(user:string) {
     return this._http.get("https://api.github.com/users/" + user + "/subscriptions")

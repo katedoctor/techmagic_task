@@ -1,0 +1,24 @@
+.followers-box {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.followers {
+  margin: 15px;
+  text-align: center;
+}
+ul {
+  list-style: none;
+}
+img {
+  width: 100px;
+  height: 110px;
+}
+.user-info {
+  display: flex;
+  justify-content: space-around;
+}
+.user-img {
+  width: 150px;
+  height: 160px;
+}

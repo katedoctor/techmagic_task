@@ -1,1 +1,16 @@
-<app-user></app-user>
+<header>
+  <a href="user/user.component.html"
+  class="header-logo">Github</a>
+  <input
+    #input
+    class="header"
+    type="text"
+    placeholder="Search by login..."
+    name="login"
+    (keyup)="onSearch(input.value)">
+  <button (click)="filterUsers('User')" class="header">users</button>
+  <button (click)="filterUsers('Organization')" class="header">organization</button>
+</header>
+<div>
+    <app-user [users]="users"></app-user>
+</div>

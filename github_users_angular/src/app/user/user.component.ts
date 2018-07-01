@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy, Input} from '@angular/core';
 import {UserService} from '../services/user.service'
 @Component({
   selector: 'app-user',
@@ -6,13 +6,11 @@ import {UserService} from '../services/user.service'
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  public users;
+
   public SelectedUser;
-  private filterUser;
   private obs;
   private obsFolow;
   private obsOrgs;
-  private obsSearch;
   private obsSubs;
   private obsRepos;
   private repos;
@@ -21,19 +19,20 @@ export class UserComponent implements OnInit {
   private loadingFollowers: Boolean = true;
   private show: Boolean = false;
   private orgs;
+  private numFollowers: Number;
+  @Input() users;
 
   constructor(private service: UserService) {
+
    }
 
   ngOnInit() {
-   this.obs = this.service.getUsers().subscribe(users => {this.users =users; console.log(this.users)});
+
   }
 
   ngOnDestroy(): void {
-    this.obs.unsubscribe()
     this.obsFolow.unsubscribe();
     this.obsOrgs.unsubscribe();
-    this.obsSearch.unsubscribe();
     this.obsSubs.unsubscribe();
     this.obsRepos.unsubscribe();
 
@@ -46,9 +45,9 @@ export class UserComponent implements OnInit {
     this.getUsersOrgs(user)
     this.getSubscription(user)
     this.getRepos(user);
-    // console.log(Object.keys(this.followers).length)
-
+    console.log(user)
   }
+
   getSubscription(user) {
     this.obsSubs = this.service.getSubscription(user.login).subscribe(res => {
       this.SelectedUser.subs = res;
@@ -61,15 +60,20 @@ export class UserComponent implements OnInit {
     this.obsOrgs = this.service.getUserOrgs(user.login).subscribe(res => {
       this.SelectedUser.orgs = res;
       this.orgs = this.SelectedUser.orgs;
-      console.log(this.orgs)
+      if(!Object.keys(this.orgs).length){
+       this.orgs = false
+      }
+      console.log(this.orgs);
     }, err => {
       console.log(err);
     });
   }
+
   getUsersFollowers(user) {
     this.obsFolow = this.service.getUserFollowers(user.login).subscribe(res => {
       this.SelectedUser.followers = res;
       this.followers = this.SelectedUser.followers;
+      this.numFollowers = Object.keys(this.followers).length;
       console.log(this.followers)
       if (this.followers) {
         this.loadingFollowers = false
@@ -83,7 +87,8 @@ export class UserComponent implements OnInit {
   getRepos(user) {
     this.obsRepos = this.service.getRepos(user.login).subscribe(res => {
       this.SelectedUser.repos = res;
-      this.repos = this.SelectedUser.repos;
+      this.repos = Object.keys(this.SelectedUser.repos).length;
+      console.log(Object.keys(this.SelectedUser.repos).length)
       console.log(this.repos)
     }, err => {
       console.log(err);
@@ -94,15 +99,6 @@ export class UserComponent implements OnInit {
     this.show = false
   }
 
-  filterUsers(type: string) {
-    this.filterUser = this.users.filter(user => user.type === type)
-    this.users = this.filterUser;
-  }
-  onSearch(login) {
-    this.obsSearch = this.service.onSearch(login).subscribe(users => {
-      this.filterUser = users;
-      this.users = this.filterUser;
-    })
-  }
+
 
 }

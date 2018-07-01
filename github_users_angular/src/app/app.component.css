@@ -1,0 +1,22 @@
+header {
+  background: rgb(32, 32, 32);
+  height: 30px;
+}
+
+.header-logo {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  float: left;
+  padding: 2px 15px;
+}
+.header{
+  float: right;
+  padding: 2px 15px;
+  margin:2px 0;
+}
+.title {
+  clear: both;
+  font-weight: 700;
+  margin: 0 15px;
+}

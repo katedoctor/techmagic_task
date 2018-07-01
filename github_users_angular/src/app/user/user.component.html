@@ -1,15 +1,3 @@
-<header>
-  <a href="/" class="header-logo">Github</a>
-  <input
-      #input
-       class="header"
-      type="text"
-      placeholder="Search by login..."
-      name="login"
-      (keyup)="onSearch(input.value)">
-  <button (click)="filterUsers('user')" class="header">users</button>
-  <button (click)="filterUsers('organization')" class="header">organization</button>
-</header>
 <div class="title">
   <h1 *ngIf="!show">Github list of users</h1>
   <h1 *ngIf="show">GitHub User</h1>
@@ -29,43 +17,19 @@
     </div>
   </li>
 </ul>
+  <button *ngIf="!show">next</button>
 
-<div *ngIf="show">
-  <button (click)="goHome()">Home</button>
-
-  <div class="user-info">
-    <div>
-      <img [src]="SelectedUser.avatar_url">
-      <h2>{{SelectedUser.login}}</h2>
-    </div>
-    <div>
-      <h3>repositories:</h3>
-      <ul *ngFor="let item of repos">
-        <li>{{item.name}}</li>
-      </ul>
-    </div>
-  </div>
-  <hr />
-  <h2>
-    <span *ngIf="loadingFollowers">Followers loading...</span>
-    <span *ngIf="!loadingFollowers">Followers</span>
-  </h2>
-  <div class="followers-box">
-    <div *ngFor="let follower of followers" class="followers" >
-      <img [src]="follower.avatar_url">
-      <h4>{{follower.login}}</h4>
-      <button (click)="MoreDetails(follower)" role="button">More info</button>
-    </div>
-  </div>
-  <hr />
-  <h2>Subcriptions:</h2>
-  <ul *ngFor="let sub of subs">
-    <li>{{sub.name}}</li>
-  </ul>
-  <h2>Organizations:</h2>
-  <ul *ngFor="let org of orgs">
-    <li>{{org.login}}</li>
-  </ul>
+<div *ngIf="show" class="user-info">
+  <app-user-info
+    [SelectedUser]="SelectedUser"
+    [repos]="repos"
+    [subs]="subs"
+    [followers]="followers"
+    [orgs]="orgs"
+    [loadingFollowers]="loadingFollowers"
+    [numFollowers]= "numFollowers"
+    (details)="MoreDetails($event)"
+    (goHome)="goHome(e)"></app-user-info>
 </div>
 
 
