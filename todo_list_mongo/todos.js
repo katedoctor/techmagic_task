@@ -11,7 +11,7 @@ exports.getAll = function(req, res) {
 exports.addTodo = function(req, res) {
   const todo = new Todo({
     name: req.body.name,
-    done: req.body.marked === ('done'|| true )? true : false ,
+    done: false ,
   });
     if (!req.body.name) {
     return res.status(400).send('data is required')
@@ -32,9 +32,16 @@ exports.removeTodo = function(req, res) {
     _id: req.params.id
   })
     .then(todo => {
-      res.send(todo + 'todo was deleted')
+      res.send(todo + ' todo was deleted')
     }).catch(err => {
-      res.send(err).status(500);
+      res.send({
+        message: 'not found'
+      }).status(500);
+      if(err.kind === 'ObjectId'){
+        return res.status(404).send({
+          message: `todo ${req.params.id} not found `
+        })
+      }
     })
 }
 
@@ -44,9 +51,9 @@ exports.getTodo = function(req, res) {
   })
     .then(todo => res.json(todo))
       .catch(err => {
-        return res.status(404). send({
-          message: `todo ${req.params.id} not found `
-        })
+        res.send({
+          message: `not found` + err
+        }).status(500)
       })
 }
 

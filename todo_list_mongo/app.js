@@ -4,7 +4,7 @@ const router = express.Router();
 const todos = require('./todos');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todos')
+mongoose.connect('mongodb://localhost/todo')
   .then(() => console.log('mongodb has started'))
   .catch(err => console.log(err));
 const db = mongoose.connection;
@@ -26,6 +26,8 @@ app.get('/todo/:id', todos.getTodo)
 app.post('/todo', todos.addTodo);
 app.delete('/todo/:id', todos.removeTodo);
 app.put('/todo/:id', todos.markDone)
-app.put('/todo/:id', todos.markUndone)
+app.get('*', function() {
+  res.send('unvalid page')
+})
 
 app.listen(5500, ()=>console.log('server listening on 5500 port'))

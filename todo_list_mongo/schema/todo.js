@@ -7,7 +7,6 @@ var TodoSchema = new Schema({
 },
   {
     versionKey: false,
-},
- { _id: false});
+});
 
 module.exports = mongoose.model('Todo', TodoSchema);
