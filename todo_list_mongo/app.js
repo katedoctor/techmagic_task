@@ -25,7 +25,8 @@ app.get('/todo', todos.getAll);
 app.get('/todo/:id', todos.getTodo)
 app.post('/todo', todos.addTodo);
 app.delete('/todo/:id', todos.removeTodo);
-app.put('/todo/:id', todos.markDone)
+app.put('/todo/:id', todos.markDone);
+app.post('/todo/:id', todos.markUndone);
 app.get('*', function() {
   res.send('unvalid page')
 })
