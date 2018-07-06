@@ -1,0 +1,25 @@
+{
+  "name": "graph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "servers": "json-server --watch data.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.0.0-rc.6",
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2",
+    "json-server": "^0.14.0",
+    "mongoose": "^5.2.1",
+    "nodemon": "^1.17.5"
+  }
+}

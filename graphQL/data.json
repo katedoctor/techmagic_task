@@ -1,0 +1,126 @@
+{
+  "playlists": [
+    {
+      "id": "1",
+      "name": "for running",
+      "ganre": "pop"
+    },
+    {
+      "id": "2",
+      "name": "for sleep",
+      "ganre": "cantry"
+     },
+    {
+      "id": "3",
+      "name": "dance",
+      "ganre": "rock"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "1",
+      "playlistId": "1",
+      "name": "go",
+      "band": "nickelback",
+      "stars_count": 4
+    },
+    {
+      "id": "2",
+      "playlistId": "1",
+      "name": "bobby, baby",
+      "band": "lera lynn",
+      "stars_count": 5
+    },
+    {
+      "id": "3",
+      "playlistId": "1",
+      "name": "en automme",
+      "band": "5nizza",
+      "stars_count": 3
+    },
+    {
+      "id": "4",
+      "playlistId": "1",
+      "name": "church in ruins",
+      "band": "lera lynn",
+      "stars_count": 5
+    },
+    {
+      "id": "5",
+      "name": "lucy",
+      "playlistId": "1",
+      "band": "nypnogagia",
+      "stars_count": 5
+    },
+    {
+      "id": "6",
+      "playlistId": "2",
+      "name": "centuries",
+      "band": "fall out boy",
+      "stars_count": 4
+    },
+    {
+      "id": "7",
+      "playlistId": "2",
+      "name": "bobby, baby",
+      "band": "lera lynn",
+      "stars_count": 5
+    },
+    {
+      "id": "8",
+      "playlistId": "2",
+      "name": "en automme",
+      "band": "5nizza",
+      "stars_count": 3
+    },
+    {
+      "id": "9",
+      "playlistId": "2",
+      "name": "church in ruins",
+      "band": "lera lynn",
+      "stars_count": 5
+    },
+    {
+      "id": "10",
+      "playlistId": "2",
+      "name": "lucy",
+      "band": "nypnogagia",
+      "stars_count": 5
+    },
+    {
+      "id": "11",
+      "playlistId": "3",
+      "name": "numb",
+      "band": "linkin park",
+      "stars_count": 5
+    },
+    {
+      "id": "12",
+      "playlistId": "3",
+      "name": "pain",
+      "band": "three days grace",
+      "stars_count": 4
+    },
+    {
+      "id": "13",
+      "playlistId": "3",
+      "name": "young",
+      "band": "hollywood undead",
+      "stars_count": 4
+    },
+    {
+      "id": "14",
+      "playlistId": "3",
+      "name": "haster",
+      "band": "the unscene",
+      "stars_count": 5
+    },
+    {
+      "id": "15",
+      "playlistId": "3",
+      "name": "gate21",
+      "band": "serj tankian",
+      "stars_count": 5
+    }
+  ]
+}
